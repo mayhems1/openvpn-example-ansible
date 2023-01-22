@@ -1,0 +1,21 @@
+---
+- name: Install.yml | Add repo and install OpenVPN
+  block:
+    - name: Install.yml | Add openvpn repository key
+      ansible.builtin.apt_key:
+        url: "{{ openvpn_apt_repo_key }}"
+        state: present
+
+    - name: Install.yml | Add openvpn repo
+      ansible.builtin.apt_repository:
+        repo: "{{ openvpn_repo }}"
+        state: present
+        filename: openvpn-aptrepo
+        update_cache: true
+
+    - name: Install.yml | Install packges
+      ansible.builtin.apt:
+        name: "{{ openvpn_package_name }}"
+        state: present
+      notify:
+        - Restart openvpn

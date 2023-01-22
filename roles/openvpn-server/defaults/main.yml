@@ -1,0 +1,27 @@
+---
+# Directories
+openvpn_base_dir: /etc/openvpn
+openvpn_keys_dir: /etc/openvpn/keys
+
+# OpenVPN Server
+openvpn_port: 1194
+openvpn_proto: udp4
+openvpn_dev: tun0
+openvpn_redirect_gateway: false
+openvpn_set_dns_servers: false
+openvpn_data_ciphers: AES-128-CBC
+openvpn_auth: SHA1
+openvpn_tunnel_network: 10.7.0.0 255.255.255.0
+openvpn_service_purpose: "Personal OpenVPN server"
+
+# Packaging defaults
+openvpn_version: 2.5.5-focal0
+openvpn_package_name: openvpn={{ openvpn_version }}
+openvpn_apt_repo_key: https://swupdate.openvpn.net/repos/repo-public.gpg
+
+# yamllint disable rule:line-length
+openvpn_repo: deb https://build.openvpn.net/debian/openvpn/release/2.5 {{ ansible_distribution_release }} main
+
+# EasyRSA
+easyrsa_name: easy-rsa
+easyrsa_path: /usr/share/easy-rsa
