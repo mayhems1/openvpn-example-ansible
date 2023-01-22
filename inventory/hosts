@@ -1,0 +1,2 @@
+[all]
+vps ansible_host=x.x.x.x
