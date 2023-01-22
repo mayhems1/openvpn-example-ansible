@@ -11,7 +11,6 @@ Ansible roles and playbooks for OpenVPN Server at a VPS - example
 ## Roles
 
 * roles/openvpn-server - Install and basic configuration of OpenVPN Server
-* roles/iptables - configuration iptables
 
 ## How to use
 
