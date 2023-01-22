@@ -23,22 +23,6 @@ start playbook
 ansible-playbook -i inventory/hosts server.yml -bKk
 ```
 
-## Example playbook
-
-```yaml
-- name: openvpn-server
-  hosts: vps
-  become: true
-  roles:
-    - role: openvpn-server
-      vars:
-        openvpn__version: 2.4.7
-        openvpn__port: 11194
-        openvpn__proto: udp4
-        openvpn__dev: tun0
-        openvpn__redirect-gateway: true
-```
-
 ## To do
 
 * add tasks to configure iptables
