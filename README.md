@@ -1,6 +1,6 @@
 # OpenVPN Server at a VPS
 
-Ansible roles and playbooks for OpenVPN Server at a VPS
+Ansible roles and playbooks for OpenVPN Server at a VPS - example
 
 ## Requirements
 
@@ -12,6 +12,16 @@ Ansible roles and playbooks for OpenVPN Server at a VPS
 
 * roles/openvpn-server - Install and basic configuration of OpenVPN Server
 * roles/iptables - configuration iptables
+
+## How to use
+
+define IP address of VPS at inventory/group_vars/all.yml
+
+start playbook
+
+```bash
+ansible-playbook -i inventory/hosts server.yml -bKk
+```
 
 ## Example playbook
 
@@ -28,3 +38,8 @@ Ansible roles and playbooks for OpenVPN Server at a VPS
         openvpn__dev: tun0
         openvpn__redirect-gateway: true
 ```
+
+## To do
+
+* add tasks to configure iptables
+* add tasks to configure nat
