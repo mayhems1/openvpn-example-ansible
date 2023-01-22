@@ -1,0 +1,27 @@
+{{ ansible_managed_banner | comment }}
+{{ openvpn_service_purpose | comment }}
+port {{ openvpn_port }}
+proto {{ openvpn_proto }}
+dev {{ openvpn_dev }}
+ca {{ openvpn_keys_dir }}/ca.crt
+cert {{ openvpn_keys_dir }}/server.crt
+key {{ openvpn_keys_dir }}/server.key
+dh {{ openvpn_keys_dir }}/dh.pem
+server {{ openvpn_tunnel_network }}
+{% if openvpn_redirect_gateway %}
+push "redirect-gateway def1 bypass-dhcp"
+{% endif %}
+{% if openvpn_set_dns_servers %}
+push "dhcp-option DNS 8.8.8.8"
+push "dhcp-option DNS 1.1.1.1"
+{% endif %}
+keepalive 10 120
+tls-auth {{ openvpn_keys_dir }}/ta.key 0
+data-ciphers {{ openvpn_data_ciphers }}
+data-ciphers-fallback {{ openvpn_data_ciphers }}
+auth {{ openvpn_auth }}
+persist-key
+persist-tun
+status /var/log/openvpn/openvpn{{ openvpn_port }}-status.log
+verb 3
+explicit-exit-notify 1

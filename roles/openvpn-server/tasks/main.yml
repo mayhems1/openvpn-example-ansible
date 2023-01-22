@@ -1,0 +1,15 @@
+---
+- name: Main.yml | Install OpenVPN
+  ansible.builtin.include_tasks: install.yml
+  tags:
+    - install
+
+- name: Main.yml | Install EasyRSA and generate or copy certs
+  ansible.builtin.include_tasks: certs.yml
+  tags:
+    - certs
+
+- name: Main.yml | Configure OpenVPN server
+  ansible.builtin.include_tasks: configure.yml
+  tags:
+    - configure
