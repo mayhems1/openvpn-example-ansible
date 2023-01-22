@@ -4,7 +4,7 @@ Ansible roles and playbooks for OpenVPN Server at a VPS - example
 
 ## Requirements
 
-* VPS with Linux Debian based distr
+* VPS with Linux Ubuntu 20.04 distr
 * SSH access
 * sudo / root access
 
