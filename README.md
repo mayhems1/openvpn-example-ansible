@@ -14,12 +14,16 @@ Ansible roles and playbooks for OpenVPN Server at a VPS - example
 
 ## How to use
 
-define IP address of VPS at inventory/group_vars/all.yml
+define IP address of VPS at inventory/hosts
 
 start playbook
 
 ```bash
 ansible-playbook -i inventory/hosts server.yml -bKk
+
+# with user
+
+ansible-playbook -i inventory/hosts server.yml -bKk -u root
 ```
 
 ## To do
